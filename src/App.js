@@ -1,4 +1,5 @@
 import './App.css';
+import About from './components/About';
 import Form from './components/Form';
 import Navbar from './components/Navbar';
 
@@ -8,7 +9,8 @@ function App() {
     <div className="App">
       <Navbar title="Nottes" />
       <div className='container my-3'>
-        <Form />
+        {/* <Form /> */}
+        <About/>
       </div>
     </div>
   );
