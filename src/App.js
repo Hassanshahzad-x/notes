@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { Route, Routes, BrowserRouter, Link } from 'react-router-dom';
 import './App.css';
-// import About from './components/About';
+import About from './components/About';
 import Alert from './components/Alert';
 import Form from './components/Form';
 import Navbar from './components/Navbar';
@@ -30,14 +31,18 @@ function App() {
     }
   }
   return (
-    <div className="App">
-      <Navbar title="Nottes" mode={mode} toggleMode={toggleMode} />
-      <Alert alert={alert} />
-      <div className='container my-3'>
-        <Form />
-        {/* <About/> */}
-      </div>
-    </div>
+    <>
+      <BrowserRouter>
+        <Navbar title="Nottes" mode={mode} toggleMode={toggleMode} />
+        <Alert alert={alert} />
+        <div className='container my-3'>
+          <Routes>
+            <Route path="/about" element={<About />} />
+            <Route path="/" element={<Form />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </>
   );
 }
 
